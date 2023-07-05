@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+           *{
+              box-sizing: border-box;
+              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+           }
+          .form{
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               height: 600px;
+          }
+          .form-cont{
+            margin: 20px auto 20px auto;
+          }
+          p{
+            color: rgb(130, 255, 114);
+            margin: 0px 0px 0px 30px;
+            font-weight: 200;
+            font-size: 12px;
+          }
+          h1{
+            text-align: center;
+          }
+          form{
+            background-color: black;
+            padding: 30px;
+            box-shadow: 2px 2px 20px 10px rgb(214, 214, 214);
+          }
+          input{
+            margin: 20px;
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 300px;
+          }
+          .btn{
+             display: flex;
+          }
+          input[type="submit"]{
+            margin: 20px auto 20px auto;
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            color: white;
+            width: 100px;
+            background-image: linear-gradient(to right,rgb(31, 31, 31),rgb(90, 226, 72));
+          }
+          #pp{
+            visibility: hidden;
+          }
+    </style>
+
+    
+</head>
+<body>
+            <div class="form">
+                <div class="form-cont">
+                    <h1>Sign Up</h1>
+                    <form action=""  name="myForm" method="post">
+                        <input type="text" name="Fname" id="Fname" placeholder="Firstame">
+                        <br>
+                        <p>Names should be capitalized</p>
+                        <input type="text" name="Lname" id="Lname" placeholder="Lastname">
+                        <br>
+                        <input type="email" name="Mail" id="Mail" placeholder="Email">
+                        <br>
+                        <p id="pp"></p>
+                        <input type="password" name="Pword" id="Pword" placeholder="Password">
+                        <br>
+                        <p>
+                            Must be at least 8 letters long
+                            and contain only<br> "_","-" and "$"
+                        </p>
+                        <div class="btn">
+                            <input type="button" value="button" id="Btn">
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+            <script>
+
+                let butn = document.getElementById("Btn");
+                let Fname = document.getElementById("Fname");
+                let Lname = document.getElementById("Lname");
+                let Mail = document.getElementById("Mail");
+              
+                function validateForm() {
+                    let M = document.getElementById("Fname");
+                    if(M.value === "Sanni Hariz"){
+                       let newTxt = M.value.toUpperCase();
+                       M.value = newTxt;
+                       console.log(newTxt)
+                    }
+
+                    butn.style.backgroundColor = "gray";
+                   
+                }
+
+                function validateLNAME(){
+                  let L = document.forms["myForm"]["Lname"];
+                  if(L.value === "sanni"){
+                       let newTxt2 = L.value.toUpperCase();
+                       L.value = newTxt2;
+                       console.log(newTxt2)
+                   }
+                   butn.style.backgroundColor = "gray";
+                }
+
+                function validateMail() {
+                   let E_mail = document.getElementById("Mail");
+                   let Inc = E_mail.value.includes("@");
+                   let val = E_mail.value;
+                   if(val === Inc){
+                      console.log(E_mail.value);
+                   }/*else if(E_mail.value !== Inc){
+                       alert(`"Mail must include '@'"`)
+                   }*/
+                
+                }
+                Fname.addEventListener("mouseout" , validateForm);
+                Lname.addEventListener("mouseout" , validateLNAME);
+                Mail.addEventListener("mouseout" , validateMail);
+
+               
+     
+         </script>
+</body>
+</html> 
